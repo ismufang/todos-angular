@@ -1,0 +1,36 @@
+<style>
+  .container {
+    max-width: 500px;
+    padding: 0 15px;
+  }
+  h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .list-group {
+    margin-top: 30px;
+  }
+</style>
+<div class="container">
+  <h1>Todos-angular</h1>
+  <!-- <div><pre>{{todos | async | json}}</pre></div> -->
+  <div class="input-group">
+    <input #AddTodoInput type="text" class="form-control" placeholder="add todo...">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button" (click)="addTodo()">添加</button>
+    </span>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let todo of todos | async">
+      <div class="row">
+        <div class="col-xs-10">
+          {{todo.title}}
+        </div>
+        <div class="col-xs-2">
+          <button class="btn btn-sm btn-danger" (click)="deleteTodo(todo.id)">删除</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div> 
