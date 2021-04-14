@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { fromEvent, Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators'
 import { AppState } from './store';
-import { addTodo, deleteTodo } from './store/actions/todo.actions';
+import { addTodo, deleteTodo, checkedTodo } from './store/actions/todo.actions';
 import { Todo } from './store/reducers/todo.reducer';
 import { selectTodos } from './store/selector/todo.selectors';
 
@@ -40,6 +40,11 @@ export class AppComponent implements AfterViewInit{
     if (!title.trim()) return
     this.store.dispatch(addTodo({title}))
     this.AddTodoInput.nativeElement.value = ''
+  }
+
+  checkChange(target: any, id: string) {
+    // console.log(target.checked, id)
+    this.store.dispatch(checkedTodo({id, checked: target.checked}))
   }
 
   deleteTodo(id: string) {

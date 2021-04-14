@@ -11,6 +11,10 @@
   .list-group {
     margin-top: 30px;
   }
+  .checked {
+    text-decoration: line-through;
+    color: #999999;
+  }
 </style>
 <div class="container">
   <h1>Todos-angular</h1>
@@ -25,7 +29,12 @@
     <li class="list-group-item" *ngFor="let todo of todos | async">
       <div class="row">
         <div class="col-xs-10">
-          {{todo.title}}
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" (change)="checkChange($event.target, todo.id)" [checked]="todo.checked"> <span [ngClass]="{'checked': todo.checked}">{{todo.title}}</span>
+            </label>
+          </div>
+          
         </div>
         <div class="col-xs-2">
           <button class="btn btn-sm btn-danger" (click)="deleteTodo(todo.id)">删除</button>
