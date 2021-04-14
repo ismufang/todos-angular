@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 3033 --open",
-    "build": "ng build"
+    "build": "ng build --prod"
   },
   "private": true,
   "dependencies": {
