@@ -27,20 +27,24 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 
-## notes
-创建store
+## Notes
+
+Create store
 ```
 ng g store State --root --module app.module.ts --statePath store --stateInterface AppState
 ```
-创建action
+
+Create action
 ```
 ng g action store/actions/todo --skipTests
 ```
-创建reducer
+
+Create reducer
 ```
 ng g reducer store/reducers/todo --reducers ../index.ts --skipTests
 ```
-创建selector
+
+Create selector
 ```
 ng g selector store/selector/todo --skipTests
 ```
